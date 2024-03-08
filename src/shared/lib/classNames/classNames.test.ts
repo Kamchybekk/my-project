@@ -18,7 +18,7 @@ describe('classNames', () => {
         'class2',
       ])
     ).toBe(expected);
-  });
+  }    );
 
   test('with mods false', () => {
     const expected = 'someClass class1 class2 hovered';
