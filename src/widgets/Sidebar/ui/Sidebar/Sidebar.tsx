@@ -24,7 +24,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         className,
       ])}
     >
-      <Button data-testid="sidebar-toogle" onClick={onToggle}>
+      <Button data-testid="sidebar-toggle" onClick={onToggle}>
         toggle
       </Button>
       <div className={cls.switchers}>
