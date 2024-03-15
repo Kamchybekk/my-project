@@ -8,7 +8,7 @@ import { ErrorBoundary } from './app/providers/ErrorBoundary';
 
 render(
     <BrowserRouter>
-        <ErrorBoundary children={undefined}>
+        <ErrorBoundary>
             <ThemeProvider>
                 <App />
             </ThemeProvider>
