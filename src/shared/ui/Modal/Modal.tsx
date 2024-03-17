@@ -5,15 +5,27 @@ import { classNames } from 'shared/lib/classNames/classNames';
 interface ModalProps {
     className?: string;
     children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
 }
 
 const Modal = (props: ModalProps) => {
-    const { children, className } = props;
+    const { children, className, isOpen } = props;
+
+    const mods: Record<string, boolean> = {
+        [cls.opened]: isOpen,
+    };
+
+    const onContentClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+    };
 
     return (
-        <div className={classNames(cls.Modal, {}, [className])}>
+        <div className={classNames(cls.Modal, mods, [className])}>
             <div className={cls.overlay}>
-                <div className={cls.content}>{children}</div>
+                <div onClick={onContentClick} className={cls.content}>
+                    {children}
+                </div>
             </div>
         </div>
     );
