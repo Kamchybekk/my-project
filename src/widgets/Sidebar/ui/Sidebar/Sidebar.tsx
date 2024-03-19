@@ -25,9 +25,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <Button
                 data-testid="sidebar-toggle"
@@ -46,7 +44,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     className={cls.item}
                 >
                     <MainIcon className={cls.icon} />
-                    <span className={cls.link}>{t('Главная')}</span>
+                    <span className={cls.link}>
+                        {t('Главная')}
+                    </span>
                 </AppLink>
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
@@ -54,12 +54,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     className={cls.item}
                 >
                     <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>{t('О сайте')}</span>
+                    <span className={cls.link}>
+                        {t('О сайте')}
+                    </span>
                 </AppLink>
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
+                <LangSwitcher
+                    short={collapsed}
+                    className={cls.lang}
+                />
             </div>
         </div>
     );
