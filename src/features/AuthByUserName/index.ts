@@ -1,2 +1,1 @@
-import { LoginModal } from './ui/LoginModal/LoginModal';
-export { LoginModal };
+export { LoginModal } from './ui/LoginModal/LoginModal';
