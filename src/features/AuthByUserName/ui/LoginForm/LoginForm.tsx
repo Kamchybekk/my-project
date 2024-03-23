@@ -16,7 +16,7 @@ interface LoginFormProps {
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { username, password } = useSelector(getLoginState);
+    const { username, password, error, isLoading } = useSelector(getLoginState);
 
     const onChangeUserName = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
