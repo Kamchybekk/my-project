@@ -7,6 +7,7 @@ import React, {
     useState,
 } from 'react';
 import cls from './Input.module.scss';
+import { ButtonTheme } from '../Button/Button';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
