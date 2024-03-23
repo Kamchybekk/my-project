@@ -7,7 +7,7 @@ import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
 import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUserName.test';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUserName';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 interface LoginFormProps {
@@ -33,6 +33,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            <Text title={t('Форма авторизации')} />
             {error && (
                 <Text
                     text={t('Вы ввели неверный логин или пароль')}
