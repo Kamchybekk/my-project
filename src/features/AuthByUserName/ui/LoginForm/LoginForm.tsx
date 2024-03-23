@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
+import { memo } from 'react';
 
 interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
 
     return (
@@ -29,4 +30,4 @@ export const LoginForm = ({ className }: LoginFormProps) => {
             </Button>
         </div>
     );
-};
+});
