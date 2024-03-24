@@ -1,1 +1,1 @@
-export const USER_LOCALSTORAGE_KEY = 'USER_LOCAL_KEY';
+export const USER_LOCALSTORAGE_KEY = 'user';
