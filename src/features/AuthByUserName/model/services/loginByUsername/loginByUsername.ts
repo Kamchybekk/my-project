@@ -35,4 +35,3 @@ export const loginByUsername = createAsyncThunk<
         return thunkAPI.rejectWithValue('error');
     }
 });
-  
