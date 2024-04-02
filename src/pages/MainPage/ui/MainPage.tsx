@@ -10,8 +10,11 @@ const MainPage = () => {
         setValue(val);
     };
 
-    return <div>{t('Главная страница')}</div>;
+    return (
+        <div>
+            {t('Главная страница')}
+        </div>
+    );
 };
 
 export default MainPage;
- 
