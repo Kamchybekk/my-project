@@ -7,6 +7,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
+import { $api } from 'shared/api/api';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -24,6 +25,14 @@ export function createReduxStore(
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddlware) =>
+            getDefaultMiddlware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
+                },
+            }),
     });
 
     // @ts-ignore
