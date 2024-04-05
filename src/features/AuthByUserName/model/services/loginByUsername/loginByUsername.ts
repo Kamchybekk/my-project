@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { User, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
@@ -30,7 +29,8 @@ export const loginByUsername = createAsyncThunk<
                 JSON.stringify(response.data)
             );
             dispatch(userActions.setAuthData(response.data));
-
+            // @ts-ignorets-ignore
+            extra.navigate('/about');
             return response.data;
         } catch (e) {
             console.log(e);
