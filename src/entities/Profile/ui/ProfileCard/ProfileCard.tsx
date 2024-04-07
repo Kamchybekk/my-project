@@ -23,10 +23,7 @@ export const ProfileCard = ({ className }: ProfileCardProps) => {
         <div className={classNames(cls.ProfileCard, {}, [className])}>
             <div className={cls.header}>
                 <Text title={t('Профиль')} />
-                <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                >
+                <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE}>
                     {t('Редактировать')}
                 </Button>
             </div>
