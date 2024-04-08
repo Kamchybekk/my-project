@@ -26,6 +26,7 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
     const data = useSelector(getProfileData);
+    console.log(data, 'DATA');
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
 
