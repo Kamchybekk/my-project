@@ -17,6 +17,7 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -28,7 +29,7 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
+    const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
@@ -84,7 +85,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 <ProfileCard
-                    data={data}
+                    data={formData}
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
