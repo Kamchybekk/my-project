@@ -7,6 +7,7 @@ import { getProfileReadonly, profileActions } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ProfilePageHeader.module.scss';
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -22,7 +23,6 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
-        console.log('done on edit');
         dispatch(profileActions.setReadonly(false));
     }, [dispatch]);
 
@@ -30,9 +30,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
         dispatch(profileActions.cancelEdit());
     }, [dispatch]);
 
-    // const onSave = useCallback(() => {
-    //     dispatch(profileActions.updateProfileData());
-    // }, [dispatch]);
+    const onSave = useCallback(() => {
+        dispatch(updateProfileData());
+    }, [dispatch]);
 
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
@@ -58,7 +58,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     <Button
                         className={cls.saveBtn}
                         theme={ButtonTheme.OUTLINE}
-                        // onClick={onSave}
+                        onClick={onSave}
                     >
                         {t('Сохранить')}
                     </Button>
