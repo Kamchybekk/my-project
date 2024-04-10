@@ -5,6 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
+import { Currency, Country } from 'shared/const/common';
 
 interface ProfileCardProps {
     className?: string;
@@ -18,6 +19,8 @@ interface ProfileCardProps {
     onChangeAge?: (value?: string) => void;
     onChangeUsername?: (value?: string) => void;
     onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
