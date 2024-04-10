@@ -8,6 +8,7 @@ import { Profile } from '../../model/types/profile';
 import { Currency, Country } from 'shared/const/common';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { CountrySelect } from 'entities/Country';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
     className?: string;
@@ -82,6 +83,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
+                {data?.avatar && (
+                    <div className={cls.avatarWrapper}>
+                        <Avatar src={data?.avatar} />
+                    </div>
+                )}
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше имя')}
