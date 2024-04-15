@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency } from 'entities/Currency/model/types/currency';
+import { CurrencySelect } from 'entities/Currency';
+import { Country } from 'entities/Country/model/types/country';
+import { CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
-import { Currency, Country } from 'shared/const/common';
-import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
-import { CountrySelect } from 'entities/Country';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
     className?: string;
@@ -39,20 +40,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCity,
         onChangeAvatar,
         onChangeUsername,
-        onChangeCurrency,
         onChangeCountry,
+        onChangeCurrency,
     } = props;
     const { t } = useTranslation('profile');
 
     if (isLoading) {
         return (
-            <div
-                className={classNames(
-                    cls.ProfileCard,
-                    { [cls.loading]: true },
-                    [className]
-                )}
-            >
+            <div className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
                 <Loader />
             </div>
         );
@@ -60,12 +55,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <div
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.error,
-                ])}
-            >
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
